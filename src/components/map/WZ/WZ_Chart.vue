@@ -22,6 +22,7 @@ export default {
     this.mapInit();
     this.mapRegister();
     this.mapOption();
+    this.mapEvent();
   },
   methods: {
     mapInit() {
@@ -29,6 +30,11 @@ export default {
     },
     mapRegister() {
       this.$echarts.registerMap("wenzhou", MAP_WENZHOU);
+    },
+    mapEvent() {
+      this.chart.getZr().on("click", evt => {
+        console.log(evt);
+      });
     },
     mapOption() {
       this.chart.setOption({
