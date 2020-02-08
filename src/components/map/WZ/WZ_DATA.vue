@@ -16,24 +16,41 @@
 </template>
 
 <script>
+/* eslint-disable */
+import { qzrs, zyrs } from "../data/mapData";
+
 export default {
   name: "WZ_DATA",
   props: ["data"],
   data: () => {
     return {
       ill: 0,
-      cure: 0
+      cure: 0,
+      qzrs,
+      zyrs
     };
   },
   mounted() {
-    let ill = 0,
-      cure = 0;
-    this.data.map(({ value }) => {
-      ill += value;
-      cure += value;
-    });
-    this.ill = ill;
-    this.cure = cure;
+    // let ill = 0,
+    //   cure = 0;
+    // this.data.map(({ value }) => {
+    //   ill += Number(value[2]);
+    //   cure += Number(value[3]);
+    // });
+    // this.ill = ill;
+    // this.cure = cure;
+
+    this.qzrs
+      .filter(item => item["区县"] == "总计")
+      .map(item => {
+        this.ill = item["确诊统计数"];
+      });
+
+    this.zyrs
+      .filter(item => item["所属区县"] == "总计")
+      .map(item => {
+        this.cure = item["治愈数量"];
+      });
   }
 };
 </script>
