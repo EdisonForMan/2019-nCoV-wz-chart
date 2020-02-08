@@ -8,7 +8,10 @@
           :class="{top_active:index==current}"
           @click="goRoute(item,index)"
         >
-          <span>{{item.label}}</span>
+          <span>
+            <img :src="item.icon" />
+            <i>{{item.label}}</i>
+          </span>
         </li>
       </ul>
     </header>
@@ -25,10 +28,26 @@ export default {
   data: () => {
     return {
       toptab: [
-        { label: "防控作战地图", name: "Map" },
-        { label: "区域风险评估", name: "Risk" },
-        { label: "疫情趋势分析", name: "Analyze" },
-        { label: "病例小区分布", name: "Estate" }
+        {
+          label: "防控作战地图",
+          name: "Map",
+          icon: require("./assets/img/Map.png")
+        },
+        {
+          label: "区域风险评估",
+          name: "Risk",
+          icon: require("./assets/img/Risk.png")
+        },
+        {
+          label: "疫情趋势分析",
+          name: "Analyze",
+          icon: require("./assets/img/Analyze.png")
+        },
+        {
+          label: "病例小区分布",
+          name: "Estate",
+          icon: require("./assets/img/Estate.png")
+        }
       ],
       current: 0
     };
@@ -59,7 +78,7 @@ export default {
   display: @block;
   vertical-align: top;
   height: @height;
-  line-height: @height;
+  line-height: 52px;
   text-align: center;
 }
 
@@ -70,9 +89,10 @@ export default {
   display: flex;
   flex-direction: column;
   .app_header {
-    // .box();
+    background: url(./assets/img/header.png);
+    background-size: 100% 150%;
     height: @MaxHeight;
-    padding: 20px 10px;
+    padding: 20px 160px;
     > .app_toptab {
       .toFather();
       > li {
@@ -83,13 +103,23 @@ export default {
         opacity: 0.65;
         > span {
           .toFather();
-          border-radius: 8px;
+          border-radius: 14px;
           background-color: rgb(48, 170, 237);
           font-size: 26px;
           font-weight: 700;
           display: block;
           color: rgb(255, 255, 255);
           cursor: pointer;
+          > * {
+            display: inline-block;
+            height: 28px;
+            line-height: 28px;
+            vertical-align: middle;
+            font-style: normal;
+          }
+          i {
+            margin-left: 10px;
+          }
         }
       }
       .top_active {

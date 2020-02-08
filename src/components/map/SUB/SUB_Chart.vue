@@ -1,5 +1,6 @@
 <template>
   <div class="SUB_Chart">
+    <SUBData :data="DATA_WENZHOU" />
     <div id="sub-chart"></div>
   </div>
 </template>
