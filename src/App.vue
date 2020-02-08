@@ -101,6 +101,7 @@ export default {
     flex: 1;
     > div {
       .toFather();
+      position: relative;
     }
   }
 }

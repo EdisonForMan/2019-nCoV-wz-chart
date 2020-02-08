@@ -6,10 +6,12 @@
 
 <script>
 /* eslint-disable */
+import WZData from "./WZ_DATA";
 import MAP_WENZHOU from "../geoJson/wz";
 import { DATA_WENZHOU } from "../mapJson";
 export default {
   name: "WZ_Chart",
+  components: { WZData },
   data() {
     return {
       chart: undefined,

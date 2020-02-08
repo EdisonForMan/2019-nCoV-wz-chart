@@ -6,10 +6,12 @@
 
 <script>
 /* eslint-disable */
+import SUBData from "./float/SUB_FLOAT";
 import MAP_WENZHOU from "../geoJson/wz";
 import { DATA_WENZHOU } from "../mapJson";
 export default {
   name: "SUB_Chart",
+  components: { SUBData },
   data() {
     return {
       chart: undefined,
