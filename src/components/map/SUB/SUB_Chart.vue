@@ -6,7 +6,7 @@
 
 <script>
 /* eslint-disable */
-import SUBData from "./float/SUB_FLOAT";
+import SUBData from "./SUB_DATA";
 import MAP_WENZHOU from "../geoJson/wz";
 import { DATA_WENZHOU } from "../mapJson";
 export default {

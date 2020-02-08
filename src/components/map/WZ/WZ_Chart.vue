@@ -32,8 +32,8 @@ export default {
       this.$echarts.registerMap("wenzhou", MAP_WENZHOU);
     },
     mapEvent() {
-      this.chart.getZr().on("click", evt => {
-        console.log(evt);
+      this.chart.on("click", ({ name }) => {
+        this.$parent.tag = name;
       });
     },
     mapOption() {

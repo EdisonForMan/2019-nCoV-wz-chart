@@ -1,7 +1,7 @@
 <template>
   <div class="MapChart">
     <WZChart v-if="!sub" ref="sup" />
-    <SUBChart v-if="sub" ref="sub" :sub="sub" />
+    <SUBChart v-if="sub" ref="sub" :tag="tag" />
   </div>
 </template>
 
@@ -12,8 +12,15 @@ export default {
   name: "MapChart",
   data: () => {
     return {
-      sub: undefined
+      sub: false,
+      tag: undefined
     };
+  },
+  watch: {
+    tag(n, o) {
+      console.log("[toSub]", n);
+      this.sub = n ? true : false;
+    }
   },
   components: { WZChart, SUBChart }
 };
